@@ -4,47 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
   <title>Túi quà 🎁</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="style.css">
-  <style>
-        .snow-container {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-        }
-
-        .snowflake {
-            position: absolute;
-            top: -10px;
-            color: #aaaaaa;
-            font-size: 10px;
-            opacity: 0.8;
-            animation: fall linear infinite;
-        }
-        @keyframes fall {
-            0% {
-                transform: translateY(0) translateX(0);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(100vh) translateX(20px);
-                opacity: 0;
-            }
-        }
-    </style>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="/style.css">
 </head>
-<body style="background: url('/img/tetgif.gif') top left no-repeat, url('/img/tet.png') top right no-repeat;background-size: 30%, 50%;">
-<div class="snow-container"></div>
+<body>
 <div class="shareArticle">
   <div class="shareSocial">
     <h3 class="socialTitle">Tham gia nhóm:</h3>
     <ul class="socialList">
-      <li><a href="https://www.facebook.com/permalink.php?story_fbid=pfbid02C1pefaF6J8aUgo7uk3XpiG3Pd7m1cL2U4PUsgwLeDXRc1JUf1B7wQYxE4fB4U68Nl&id=100079534610791" target="_blank"><i class="fa fa-facebook" style=" top: 27px; left: 25px; "></i></a></li>
-      <li><a href="https://zalo.me/g/mvtm85oyateoebbr10sr"><img src="../img/zalo.png" style="height: 37px;"></a></li>
-      <li><a href="https://t.me/shopeexucoin"><i class="fa fa-telegram"></i></a></li>
+      <li><a href="https://www.facebook.com/permalink.php?story_fbid=pfbid02C1pefaF6J8aUgo7uk3XpiG3Pd7m1cL2U4PUsgwLeDXRc1JUf1B7wQYxE4fB4U68Nl&id=100079534610791" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><span class="social-icon">f</span></a></li>
+      <li><a href="https://zalo.me/g/mvtm85oyateoebbr10sr" aria-label="Zalo"><img src="/img/zalo.webp" width="39" height="37" alt="Zalo"></a></li>
+      <li><a href="https://t.me/shopeexucoin" aria-label="Telegram"><span class="social-icon">➤</span></a></li>
     </ul>
   </div>
 </div>
@@ -84,24 +54,6 @@
   
   <div id="koco" style="margin-top: 12px; display: none;">Không có shop nào tung Túi cả! Đứng đó đợi xíu tui đi kiếm hoặc quay lại sau nha!!</div>
   
-  <script src="scripttui.js"></script>
-      <script>
-        const snowContainer = document.querySelector('.snow-container');
-        const snowflakes = 100;
-        function createSnowflake() {
-            const snowflake = document.createElement('div');
-            snowflake.classList.add('snowflake');
-            snowflake.textContent = '🌸'; 
-            snowflake.style.left = Math.random() * window.innerWidth + 'px';
-            snowflake.style.animationDuration = Math.random() * 3 + 2 + 's';
-            snowflake.style.fontSize = Math.random() * 20 + 10 + 'px';
-            snowflake.style.opacity = Math.random();
-            snowContainer.appendChild(snowflake);
-            setTimeout(() => {
-                snowflake.remove();
-            }, 5000);
-        }
-        setInterval(createSnowflake, 500);
-    </script>
+  <script src="/scripttui.js" defer></script>
 </body>
 </html>

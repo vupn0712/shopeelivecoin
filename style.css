@@ -1,8 +1,22 @@
+:root {
+  --surface: #fff;
+  --page: #f9f9f9;
+  --text: #333;
+  --muted: #777;
+  --success: #4caf50;
+  --accent: #f0a500;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: Arial, sans-serif;
   text-align: center;
   padding: 20px;
-  background-color: #f9f9f9;
+  background-color: var(--page);
+  color: var(--text);
   margin: auto;
   max-width: 500px;
 }
@@ -41,7 +55,7 @@ h1 {
     -webkit-box-orient: vertical; /* Định hướng theo chiều dọc */
     -webkit-line-clamp: 2;      /* Giới hạn số dòng hiển thị */
     overflow: hidden;            /* Ẩn phần văn bản bị cắt */
-    text-overflow: ellipsis;  
+    text-overflow: ellipsis;
 }
 
 .coin-section {
@@ -57,20 +71,36 @@ h1 {
 }
 
 .button-section a {
-  background-color: #4CAF50;
+  display: inline-block;
+  background-color: var(--success);
   color: #fff;
-  border: none;
   border-radius: 5px;
   padding: 8px 12px;
   cursor: pointer;
   font-weight: bold;
   font-size: 0.9em;
-  transition: background-color 0.3s ease;
+  transition: filter 150ms ease, transform 150ms ease;
   text-decoration: none;
 }
 
-.button-section button:hover {
-  background-color: #4CAF50;
+.button-section a:hover,
+.button-section a:focus-visible {
+  filter: brightness(0.92);
+  transform: translateY(-1px);
+}
+
+.card-details {
+  display: flex;
+  justify-content: space-between;
+  width: 61%;
+}
+
+.viewer-count {
+  color: var(--muted);
+  font-size: 0.9em;
+  font-weight: normal;
+  margin-top: 8px;
+  text-align: center;
 }
 
 .countdown {
@@ -156,5 +186,21 @@ h1 {
         background-color: #1FB381;
       }
     }
+  }
+}
+
+.social-icon {
+  color: #fff;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
   }
 }
