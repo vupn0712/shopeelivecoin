@@ -1,7 +1,7 @@
 const API_URL = "https://script.google.com/macros/s/AKfycbyobr7LWkEQjy0Kvu-_eRoTgTG-aWEPC8Lk81l6pIYar85KIz1BoZfYijcp3zjghvYhPA/exec";
 const POLL_DELAY_MS = 10000;
 const COUNTDOWN_DELAY_MS = 1000;
-const REQUEST_TIMEOUT_MS = 30000;
+const REQUEST_TIMEOUT_MS = 12000;
 
 const dataList = document.getElementById("data-list");
 const loading = document.getElementById("loading");
@@ -154,12 +154,8 @@ async function fetchData() {
     renderData(normalizeData(await response.json()));
     loading.textContent = "";
   } catch (error) {
-    if (error.name === "AbortError" && !timedOut) return;
-
-    loading.textContent = "Không tải được dữ liệu. Hệ thống sẽ tự thử lại.";
-    if (timedOut) {
-      console.warn("API vòng quay phản hồi quá 30 giây");
-    } else {
+    if (error.name !== "AbortError" || timedOut) {
+      loading.textContent = "Không tải được dữ liệu. Hệ thống sẽ tự thử lại.";
       console.error("Lỗi khi lấy dữ liệu vòng quay:", error);
     }
   } finally {
